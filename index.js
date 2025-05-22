@@ -17,7 +17,7 @@ app.listen(port, () => {
 })
 
 //MongoDB Connection
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_User}:${process.env.DB_Pass}@simple-crud-server.ql3nn36.mongodb.net/?retryWrites=true&w=majority&appName=Simple-CRUD-server`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -50,7 +50,13 @@ async function run() {
       res.send(result);
     });
 
-
+    //find group by id
+    app.get('/group/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const group = await groupCollection.findOne(query);
+      res.send(group);
+    });
 
 
     // Send a ping to confirm a successful connection
