@@ -58,6 +58,14 @@ async function run() {
       res.send(group);
     });
 
+    //find group by email
+    app.get('/groupByEmail/:email', async (req, res) => {
+      const email = req.params.email;
+      const query = { groupCreatorEmail: email };
+      const group = await groupCollection.find(query).toArray();
+      res.send(group);
+    });
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
