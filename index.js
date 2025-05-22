@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('HobbyHub cookingggggg')
+  res.send('Welcome to HobbyHub')
 })
 
 app.listen(port, () => {
@@ -32,6 +32,23 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
+    const database = client.db('HobbyHub');
+    const groupCollection = database.collection('AllGroups');
+
+    //Show all groups
+    app.get('/groups', async (req, res) => {
+      const cursor = groupCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
+
+    //Create a new group
+    app.post('/createGroup', async (req, res) => {
+      const newGroup = req.body;
+      const result = await groupCollection.insertOne(newGroup);
+      res.send(result);
+    });
 
 
 
