@@ -66,6 +66,14 @@ async function run() {
       res.send(group);
     });
 
+    //delete group by id
+    app.delete('/deleteGroup/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await groupCollection.deleteOne(query);
+      res.send(result);
+    });
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
