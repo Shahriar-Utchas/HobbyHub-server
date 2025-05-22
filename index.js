@@ -74,6 +74,30 @@ async function run() {
       res.send(result);
     });
 
+    //Update group by id
+    app.put('/updateGroup/:id', async (req, res) => {
+      const id = req.params.id;
+      const updatedGroup = req.body;
+      const query = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: {
+          groupCreatorName: updatedGroup.groupCreatorName,
+          groupCreatorEmail: updatedGroup.groupCreatorEmail,
+          groupName: updatedGroup.groupName,
+          hobbyCategory: updatedGroup.hobbyCategory,
+          description: updatedGroup.description,
+          meetingLocation: updatedGroup.meetingLocation,
+          maxMembers: updatedGroup.maxMembers,
+          startDate: updatedGroup.startDate,
+          imageUrl: updatedGroup.imageUrl,
+          spot_taken: updatedGroup.spot_taken,
+        },
+      };
+      const result = await groupCollection.updateOne(query, updateDoc, options);
+      res.send(result);
+    });
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
