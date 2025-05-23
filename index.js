@@ -34,6 +34,7 @@ async function run() {
     await client.connect();
     const database = client.db('HobbyHub');
     const groupCollection = database.collection('AllGroups');
+    const joinedGroupCollection = database.collection('JoinedGroups');
 
     //Show all groups
     app.get('/groups', async (req, res) => {
@@ -96,6 +97,48 @@ async function run() {
       };
       const result = await groupCollection.updateOne(query, updateDoc, options);
       res.send(result);
+    });
+
+    //join group 
+    app.post('/joinGroup', async (req, res) => {
+      const newJoinedGroup = req.body;
+      const result = await joinedGroupCollection.insertOne(newJoinedGroup);
+      res.send(result);
+    });
+
+    //update group spot if someone joins
+    app.patch('/updateGroupSpot/:id', async (req, res) => {
+        const id = req.params.id;
+        const query = { _id: new ObjectId(id) };
+        const options = { upsert: false };
+
+        // Increment spot_taken by 1
+        const updateDoc = {
+          $inc: {
+            spot_taken: 1,
+          },
+        };
+
+        const result = await groupCollection.updateOne(query,updateDoc, options);
+        res.send(result);
+        
+    });
+
+    //show the joined groups by a user
+    app.get('/checkUserGroup/:email', async (req, res) => {
+      const email = req.params.email;
+      const query = { userEmail: email };
+      const group = await joinedGroupCollection.find(query).toArray();
+      res.send(group);
+    });
+
+    //check if a user already joined a particular group
+    app.get('/checkUserJoined/:email/:id', async (req, res) => {
+      const email = req.params.email;
+      const id = req.params.id;
+      const query = { userEmail: email, groupId: id };
+      const group = await joinedGroupCollection.findOne(query);
+      res.send(group);
     });
 
 
