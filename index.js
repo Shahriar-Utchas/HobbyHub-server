@@ -141,6 +141,17 @@ async function run() {
       res.send(group);
     });
 
+    //delete joined group by id
+    app.delete('/leaveGroup/:id/:email', async (req, res) => {
+    const groupId = req.params.id;
+    const email = req.params.email;
+
+    const query = { groupId: groupId, userEmail: email };
+    const result = await joinedGroupCollection.deleteOne(query);
+    res.send(result);
+  });
+
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
