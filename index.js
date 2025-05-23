@@ -151,6 +151,25 @@ async function run() {
     res.send(result);
   });
 
+  // Save new user info to MongoDB
+  app.post('/users', async (req, res) => {
+      const { uid, name, email, photoURL } = req.body;
+
+    try {
+      const userCollection = client.db('HobbyHub').collection('Users');
+
+      const existingUser = await userCollection.findOne({ uid });
+      if (!existingUser) {
+      const result = await userCollection.insertOne({ uid, name, email, photoURL });
+      res.status(200).json({ message: 'User saved', insertedId: result.insertedId });
+      } else {
+      res.status(200).json({ message: 'User already exists' });
+      }
+      } catch (err) {
+       console.error(err);
+       res.status(500).json({ error: 'Failed to save user' });
+      }
+  });
 
 
     // Send a ping to confirm a successful connection
