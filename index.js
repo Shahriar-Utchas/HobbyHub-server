@@ -31,7 +31,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
+    // await client.connect();
     const database = client.db('HobbyHub');
     const groupCollection = database.collection('AllGroups');
     const joinedGroupCollection = database.collection('JoinedGroups');
@@ -151,6 +151,22 @@ async function run() {
     res.send(result);
   });
 
+  //update group spot if someone leaves
+  app.patch('/updateGroupSpotLeave/:id', async (req, res) => {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) };
+    const options = { upsert: false };
+    // Decrement spot_taken by 1
+    const updateDoc = {
+      $inc: {
+        spot_taken: -1,
+      },
+    };
+    const result = await groupCollection.updateOne(query, updateDoc, options);
+    res.send(result);
+  }
+  );
+
   // Save new user info to MongoDB
   app.post('/users', async (req, res) => {
       const { uid, name, email, photoURL } = req.body;
@@ -173,8 +189,8 @@ async function run() {
 
 
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    // await client.db("admin").command({ ping: 1 });
+    // console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
