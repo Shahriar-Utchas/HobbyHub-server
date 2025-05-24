@@ -1,6 +1,6 @@
 # ⚙️ HobbyHub - Local Hobby Group Organizer (Server)
 
-## 🔗 Live Server: [Click here](https://your-server-live-url.com)
+## 🔗 Live Server: [Click here](https://hobby-hub-server-side.vercel.app/)
 
 ## 🧠 About the Project
 
