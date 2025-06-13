@@ -2,23 +2,23 @@
 
 ## 🔗 Live Server: [Click here](https://hobby-hub-server-side.vercel.app/)
 
-## 🧠 About the Project
+##  About the Project
 
 This is the backend server for **HobbyHub**, a hobby group management platform. Built with **Express.js** and **MongoDB**, this REST API handles all server-side logic, including group creation, joining/leaving groups, and user registration. It enables dynamic, secure, and scalable functionality to power the frontend client.
 
-## 🚀 Key Features
+## Key Features
 
-- 🌐 **RESTful API** endpoints for groups and user actions
-- 📦 **MongoDB Atlas** for cloud database integration
-- 🔄 **Group Creation, Update, and Deletion**
-- 👥 **Join/Leave Group Mechanism** with real-time spot tracking
-- 🔍 **Search Groups by Email or ID**
-- 📊 **Track Joined Groups by User**
-- ✅ **User Creation and Duplication Check**
-- ⚙️ **Environment Variable Support** using `dotenv`
-- 🔐 **CORS Configured** for secure frontend-server communication
+- **RESTful API** endpoints for groups and user actions
+- **MongoDB Atlas** for cloud database integration
+- **Group Creation, Update, and Deletion**
+- **Join/Leave Group Mechanism** with real-time spot tracking
+- **Search Groups by Email or ID**
+- **Track Joined Groups by User**
+- **User Creation and Duplication Check**
+- **Environment Variable Support** using `dotenv`
+- **CORS Configured** for secure frontend-server communication
 
-## 🧭 API Endpoints
+## API Endpoints
 
 ### 📁 Group Management
 | Method | Endpoint                    | Description                           |
@@ -77,7 +77,4 @@ DB_Pass = Your MongoDB password
 
 ## 🔗 Client-Side Repository
 
-To see the frontend/client-side of this project, visit:  [**HobbyHub Client-Side Repository**](https://github.com/Shahriar-Utchas/HobbyHub-client-side)
-
-## Contact
-For any inquiries, reach out via [LinkedIn](https://www.linkedin.com/in/shahriar-utchas) or check out the [Portfolio Website](https://shahriar-utchas.vercel.app/).
+To see the frontend/client-side of this project, visit:  [**HobbyHub Client-Side Repository**](https://github.com/Shahriar-Utchas/HobbyHub-client)
