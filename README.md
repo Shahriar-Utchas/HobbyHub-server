@@ -50,6 +50,34 @@ This is the backend server for **HobbyHub**, a hobby group management platform. 
 - **Node.js**
 - **Express.js**
 - **MongoDB (MongoDB Atlas)**
-- **MongoDB Native Driver**
 - **dotenv**
 - **CORS**
+
+## 🧩 How to Install & Run Locally
+
+Follow these steps to run the project on your local machine:
+
+### 1. Clone the Repository
+
+```sh
+git clone git@github.com:Shahriar-Utchas/HobbyHub-server-side.git
+```
+2. Go to the project folder ```cd HobbyHub-server-side```
+3. Install Project Dependencies
+```sh
+npm install
+```
+4. Create a .env File
+```sh
+DB_User = Your MongoDB username
+DB_Pass = Your MongoDB password
+```
+5. Start the server ```nodemon index.js```
+6. Open your browser and run APIs from: http://localhost:3000
+
+## 🔗 Client-Side Repository
+
+To see the frontend/client-side of this project, visit:  [**HobbyHub Client-Side Repository**](https://github.com/Shahriar-Utchas/HobbyHub-client-side)
+
+## Contact
+For any inquiries, reach out via [LinkedIn](https://www.linkedin.com/in/shahriar-utchas) or check out the [Portfolio Website](https://shahriar-utchas.vercel.app/).
