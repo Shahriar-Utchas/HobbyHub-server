@@ -1,4 +1,4 @@
-# ⚙️ HobbyHub - Local Hobby Group Organizer (Server)
+# HobbyHub - Local Hobby Group Organizer (Server)
 
 ## 🔗 Live Server: [Click here](https://hobby-hub-server-side.vercel.app/)
 
@@ -20,7 +20,7 @@ This is the backend server for **HobbyHub**, a hobby group management platform. 
 
 ## API Endpoints
 
-### 📁 Group Management
+### Group Management
 | Method | Endpoint                    | Description                           |
 |--------|-----------------------------|---------------------------------------|
 | GET    | `/groups`                   | Get all hobby groups                  |
@@ -30,7 +30,7 @@ This is the backend server for **HobbyHub**, a hobby group management platform. 
 | PUT    | `/updateGroup/:id`          | Update an existing group              |
 | DELETE | `/deleteGroup/:id`          | Delete a group                        |
 
-### 👥 Group Participation
+### Group Participation
 | Method | Endpoint                          | Description                              |
 |--------|-----------------------------------|------------------------------------------|
 | POST   | `/joinGroup`                      | Join a group                              |
@@ -40,12 +40,12 @@ This is the backend server for **HobbyHub**, a hobby group management platform. 
 | GET    | `/checkUserGroup/:email`          | Get all joined groups for a user         |
 | GET    | `/checkUserJoined/:email/:id`     | Check if user joined a specific group    |
 
-### 👤 User Management
+### User Management
 | Method | Endpoint     | Description                     |
 |--------|--------------|---------------------------------|
 | POST   | `/users`     | Save a new user (if not exists) |
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Node.js**
 - **Express.js**
@@ -53,11 +53,11 @@ This is the backend server for **HobbyHub**, a hobby group management platform. 
 - **dotenv**
 - **CORS**
 
-## 🧩 How to Install & Run Locally
+## How to Install & Run Locally
 
 Follow these steps to run the project on your local machine:
 
-### 1. Clone the Repository
+1. Clone the Repository
 
 ```sh
 git clone git@github.com:Shahriar-Utchas/HobbyHub-server-side.git
