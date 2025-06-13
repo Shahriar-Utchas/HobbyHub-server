@@ -62,7 +62,7 @@ Follow these steps to run the project on your local machine:
 ```sh
 git clone git@github.com:Shahriar-Utchas/HobbyHub-server.git
 ```
-2. Go to the project folder ```cd HobbyHub-server-side```
+2. Go to the project folder ```cd HobbyHub-server```
 3. Install Project Dependencies
 ```sh
 npm install
