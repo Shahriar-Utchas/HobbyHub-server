@@ -60,7 +60,7 @@ Follow these steps to run the project on your local machine:
 1. Clone the Repository
 
 ```sh
-git clone git@github.com:Shahriar-Utchas/HobbyHub-server-side.git
+git clone git@github.com:Shahriar-Utchas/HobbyHub-server.git
 ```
 2. Go to the project folder ```cd HobbyHub-server-side```
 3. Install Project Dependencies
